@@ -6,34 +6,50 @@ namespace Tjuv_och_polis
 {
     class Inventory
     {
-        
 
-        public void AddItem()
+
+        public static void TheifStealing(Person p1, Person p2)
         {
+            Random r = new Random();
+            int itemIndex = r.Next(0, ((Civilian)p2).Belongings.Count);
 
+            Gameboard.EncounterList.Add("En tjuv rånade en medborgare! Tjuven stal: ");
+            Gameboard.EncounterList.Add(((Civilian)p2).Belongings[itemIndex].ToString() + "\n");
+
+            ((Theif)p1).Loot.Add(((Civilian)p2).Belongings[itemIndex].ToString());
+            ((Civilian)p2).Belongings.RemoveAt(0);
         }
 
-        public void RemoveItem()
+        public static void PoliceConficating(Person p1, Person p2)
         {
+            Gameboard.EncounterList.Add("En polis tog en tjuv! Polisen konfiskerade: ");
+            foreach (string item in ((Theif)p2).Loot)
+            {
+                Gameboard.EncounterList.Add(item);
+                ((Police)p1).ConfiscatedItems.Add(item);
+            }
+            Gameboard.EncounterList.Add("\n");
 
+            ((Theif)p2).Loot.Clear();
         }
 
-        public static string[] CreateInventoryForPoliceOrTheif()
+        public static List<string> CreateInventoryForPoliceOrTheif()
         {
-            string[] array = new string[10];
-            return array;
+            List<string> list = new List<string>();
+            return list;
         }
 
-        public static string[] CreateInventoryForCivilian()
+        public static List<string> CreateInventoryForCivilian()
         {
-            string[] array = new string[4];
+            List<string> list = new List<string>();
 
-            array[0] = "Nycklar";
-            array[1] = "Mobiltelefon";
-            array[2] = "Pengar";
-            array[3] = "Klocka";
+            list.Add("Nycklar");
+            list.Add("Mobiltelefon");
+            list.Add("Pengar");
+            list.Add("Klocka");
 
-            return array;
+
+            return list;
         }
     }
 }

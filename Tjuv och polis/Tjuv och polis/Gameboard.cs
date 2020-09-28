@@ -11,6 +11,8 @@ namespace Tjuv_och_polis
 
         public static List<string> EncounterList = new List<string>();
 
+        public static int[] StatisticsArray = new int[2];
+
         public static void CreateCitizens()
         {
             for (int i = 0; i < 30; i++)
@@ -60,11 +62,11 @@ namespace Tjuv_och_polis
 
                                     if(Citizens[g] is Police || Citizens[h] is Police)
                                     {
-                                        Console.Write("P");
+                                        Console.Write("P");                                     
                                     }
                                     else if (Citizens[g] is Theif || Citizens[h] is Theif)
-                                    {
-                                        Console.Write("T");
+                                    {                                      
+                                        Console.Write("T");                                    
                                     }
                                     else
                                     {
@@ -83,7 +85,7 @@ namespace Tjuv_och_polis
                     }
                     if (!characterFound)
                     {
-                        Console.Write("_");
+                        Console.Write(" ");
                     }
 
                 }
@@ -104,15 +106,27 @@ namespace Tjuv_och_polis
 
         private static void CitizenEncounter(Person p1, Person p2)
         {
-            if (p1 is Police && p2 is Theif || p2 is Theif && p1 is Police)
+            if (p1 is Police && p2 is Theif)
             {
-                EncounterList.Add("En polis tog en tjuv!");
-            }
+                Inventory.PoliceConficating(p1, p2);
 
-            else if (p1 is Theif && p2 is Civilian || p1 is Civilian && p2 is Theif)
-            {
-                EncounterList.Add("En tjuv rånade en medborgare!");
+                StatisticsArray[0]++;
             }
+            else if (p1 is Theif && p2 is Civilian)
+            {
+                if (((Civilian)p2).Belongings.Count > 0)
+                {
+                    Inventory.TheifStealing(p1, p2);
+
+                    StatisticsArray[1]++;
+                }
+            }
+        }
+
+        public static void EncounterStatistics()
+        {
+            Console.WriteLine($"Antal tjuvar tagna av polis: {StatisticsArray[0]}");
+            Console.WriteLine($"Antal rånade medborgare: {StatisticsArray[1]}");
         }
     }
 }

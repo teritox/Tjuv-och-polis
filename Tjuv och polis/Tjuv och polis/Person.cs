@@ -10,6 +10,8 @@ namespace Tjuv_och_polis
 
         public int[] MovementDirection = new int[2];
 
+        
+
         public void SetPosition()
         {
             Random r = new Random();
@@ -54,7 +56,7 @@ namespace Tjuv_och_polis
 
     class Police : Person
     {
-        public string[] ConfiscatedItems = new string[10];
+        public List<string> ConfiscatedItems;
         public Police()
         {
             SetPosition();
@@ -64,13 +66,13 @@ namespace Tjuv_och_polis
 
         public override string ToString()
         {
-            return "P";
+            return $"P";
         }
     }
 
     class Theif : Person
     {
-        public string[] Loot = new string[10];
+        public List<string> Loot;
         public Theif()
         {
             SetPosition();
@@ -86,7 +88,7 @@ namespace Tjuv_och_polis
 
     class Civilian : Person
     {
-        public string[] Belongings = new string[4];
+        public List<string> Belongings;
         public Civilian()
         {
             SetPosition();

@@ -12,8 +12,14 @@ namespace Tjuv_och_polis
             while (true)
             {
                 Gameboard.City();
+
+                Console.WriteLine();
+                Gameboard.EncounterStatistics();
+
+                Console.WriteLine();
                 Gameboard.EncounterMessages();
-                Thread.Sleep(500);
+
+                Thread.Sleep(1000);
                 Console.Clear();
                 Gameboard.UpdatePositioning();
             }
