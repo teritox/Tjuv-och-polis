@@ -125,8 +125,8 @@ namespace Tjuv_och_polis
 
         public static void EncounterStatistics()
         {
-            Console.WriteLine($"Antal tjuvar tagna av polis: {StatisticsArray[0]}");
             Console.WriteLine($"Antal rånade medborgare: {StatisticsArray[1]}");
+            Console.WriteLine($"Antal gripna tjuvar: {StatisticsArray[0]}");
         }
     }
 }
