@@ -9,8 +9,7 @@ namespace Tjuv_och_polis
         public int[] Position = new int[2];
 
         public int[] MovementDirection = new int[2];
-
-        
+      
 
         public void SetPosition()
         {
@@ -73,8 +72,12 @@ namespace Tjuv_och_polis
     class Theif : Person
     {
         public List<string> Loot;
+        public int PrisonTime { get; set; }
+        public bool InPrison { get; set; }
+
         public Theif()
         {
+            InPrison = false;
             SetPosition();
             SetMovement();
             Loot = Inventory.CreateInventoryForPoliceOrTheif();

@@ -18,10 +18,16 @@ namespace Tjuv_och_polis
 
                 Console.WriteLine();
                 Gameboard.EncounterMessages();
+                Prison.ShowPrisoners();
 
                 Thread.Sleep(1000);
-                Console.Clear();
+
                 Gameboard.UpdatePositioning();
+                Prison.UpdatePrisonTime();
+
+                Console.Clear();
+
+
             }
 
             

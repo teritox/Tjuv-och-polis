@@ -108,9 +108,14 @@ namespace Tjuv_och_polis
         {
             if (p1 is Police && p2 is Theif)
             {
-                Inventory.PoliceConficating(p1, p2);
+                if (((Theif)p2).Loot.Count > 0)
+                {
+                    Inventory.PoliceArrest(p1, p2);
+                    Prison.PrisonList.Add(p2);
+                    Citizens.Remove(p2);
 
-                StatisticsArray[0]++;
+                    StatisticsArray[0]++;
+                }
             }
             else if (p1 is Theif && p2 is Civilian)
             {

@@ -6,8 +6,6 @@ namespace Tjuv_och_polis
 {
     class Inventory
     {
-
-
         public static void TheifStealing(Person p1, Person p2)
         {
             Random r = new Random();
@@ -20,7 +18,7 @@ namespace Tjuv_och_polis
             ((Civilian)p2).Belongings.RemoveAt(0);
         }
 
-        public static void PoliceConficating(Person p1, Person p2)
+        public static void PoliceArrest(Person p1, Person p2)
         {
             Gameboard.EncounterList.Add("En polis tog en tjuv! Polisen konfiskerade: ");
             foreach (string item in ((Theif)p2).Loot)
