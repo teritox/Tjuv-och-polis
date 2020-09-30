@@ -46,7 +46,6 @@ namespace Tjuv_och_polis
             list.Add("Pengar");
             list.Add("Klocka");
 
-
             return list;
         }
     }

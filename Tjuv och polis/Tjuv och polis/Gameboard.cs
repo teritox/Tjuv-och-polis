@@ -23,11 +23,11 @@ namespace Tjuv_och_polis
 
             for (int i = 0; i < 20; i++)
             {
-                Theif t = new Theif();
+                Theif t = new Theif(i + 1);
                 Citizens.Add(t);
             }
 
-            for (int i = 0; i < 10; i++)
+            for (int i = 0; i < 15; i++)
             {
                 Police p = new Police();
                 Citizens.Add(p);
@@ -51,7 +51,6 @@ namespace Tjuv_och_polis
 
                     for (int g = 0; g < Citizens.Count; g++)
                     {
-
                         if (Citizens[g].Position[0] == x && Citizens[g].Position[1] == y)
                         {
                             for (int h = 0; h < Citizens.Count; h++)
@@ -81,13 +80,11 @@ namespace Tjuv_och_polis
                                 characterFound = true;
                             }
                         }
-
                     }
                     if (!characterFound)
                     {
                         Console.Write(" ");
                     }
-
                 }
                 Console.WriteLine();
             }
@@ -95,7 +92,7 @@ namespace Tjuv_och_polis
 
         public static void EncounterMessages()
         {
-            Console.WriteLine();
+            Console.WriteLine("- Händelser i staden \n");
 
             foreach (string msg in EncounterList)
             {
@@ -130,7 +127,7 @@ namespace Tjuv_och_polis
 
         public static void EncounterStatistics()
         {
-            Console.WriteLine($"Antal rånade medborgare: {StatisticsArray[1]}");
+            Console.WriteLine($"\nAntal rånade medborgare: {StatisticsArray[1]}");
             Console.WriteLine($"Antal gripna tjuvar: {StatisticsArray[0]}");
         }
     }

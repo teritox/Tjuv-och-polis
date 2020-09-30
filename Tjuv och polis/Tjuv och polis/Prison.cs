@@ -12,16 +12,19 @@ namespace Tjuv_och_polis
         {
             if (PrisonList.Count > 0)
             {
-                foreach (Person person in PrisonList)
+                for (int i = PrisonList.Count - 1; i >= 0; i--)
                 {
-                    if (((Theif)person).PrisonTime > 30)
+                    if (((Theif)PrisonList[i]).PrisonTime > 30)
                     {
-                        ((Theif)person).PrisonTime = 0;
-                        Gameboard.Citizens.Add(person);
+                        ((Theif)PrisonList[i]).PrisonTime = 0;
+                        Gameboard.Citizens.Add(PrisonList[i]);
 
-                        PrisonList.Remove(person);
+                        Gameboard.EncounterList.Add($"Tjuv {((Theif)PrisonList[i]).Serialnumber} går nu fri från fängelset!\n");
+
+                        PrisonList.RemoveAt(i);
                     }
                 }
+
             }
         }
 
@@ -38,20 +41,16 @@ namespace Tjuv_och_polis
 
         public static void ShowPrisoners()
         {
-            Console.WriteLine("Fängelset: ");
+            Console.WriteLine("\n\n- Fängelset \n");
 
             if (PrisonList.Count > 0)
             {
-                int theifs = 1;
-
                 foreach (Person theif in PrisonList)
                 {
-                    Console.WriteLine($"Tjuv {theifs} har suttit i fängelset i {((Theif)theif).PrisonTime} sekunder.");
-                    theifs++;
+                    Console.WriteLine($"Tjuv {((Theif)theif).Serialnumber} har suttit i fängelset i {((Theif)theif).PrisonTime} sekunder.");
                 }
+                Console.WriteLine();
             }
         }
-
-
     }
 }

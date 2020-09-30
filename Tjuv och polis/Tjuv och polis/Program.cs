@@ -13,12 +13,9 @@ namespace Tjuv_och_polis
             {
                 Gameboard.City();
 
-                Console.WriteLine();
                 Gameboard.EncounterStatistics();
-
-                Console.WriteLine();
-                Gameboard.EncounterMessages();
                 Prison.ShowPrisoners();
+                Gameboard.EncounterMessages();
 
                 Thread.Sleep(1000);
 
@@ -28,9 +25,7 @@ namespace Tjuv_och_polis
                 Console.Clear();
 
 
-            }
-
-            
+            }            
         }
     }
 }

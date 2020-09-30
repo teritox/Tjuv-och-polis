@@ -73,11 +73,11 @@ namespace Tjuv_och_polis
     {
         public List<string> Loot;
         public int PrisonTime { get; set; }
-        public bool InPrison { get; set; }
+        public int Serialnumber { get; set; }
 
-        public Theif()
+        public Theif(int serialnumber)
         {
-            InPrison = false;
+            Serialnumber = serialnumber;
             SetPosition();
             SetMovement();
             Loot = Inventory.CreateInventoryForPoliceOrTheif();
