@@ -35,6 +35,12 @@ namespace Tjuv_och_polis
             ((Theif)p2).Loot.Clear();
         }
 
+        public static List<string> CreateInventoryForPoliceAndTheif()
+        {
+            List<string> list = new List<string>();
+
+            return list;
+        }
         public static List<string> CreateInventoryForCivilian()
         {
             List<string> list = new List<string>();

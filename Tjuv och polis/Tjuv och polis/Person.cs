@@ -63,6 +63,7 @@ namespace Tjuv_och_polis
         {
             SetPosition();
             SetMovement();
+            ConfiscatedItems = Inventory.CreateInventoryForPoliceAndTheif();
         }
 
         public override string ToString()
@@ -82,6 +83,7 @@ namespace Tjuv_och_polis
             Serialnumber = serialnumber;
             SetPosition();
             SetMovement();
+            Loot = Inventory.CreateInventoryForPoliceAndTheif();
         }
 
         public override string ToString()
