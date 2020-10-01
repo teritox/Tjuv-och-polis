@@ -11,14 +11,14 @@ namespace Tjuv_och_polis
 
             while (true)
             {
-                //Creates map
                 Gameboard.City();
 
-                //Shows various information
                 Encounter.EncounterStatistics();
-                Prison.Prisoners();
+                Prison.ShowPrisoners();
+
                 Encounter.EncounterMessages();
 
+               
                 Gameboard.UpdatePositioning();
                 Prison.UpdatePrisonTime();
 

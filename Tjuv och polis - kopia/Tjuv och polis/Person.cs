@@ -13,7 +13,6 @@ namespace Tjuv_och_polis
 
         public void SetPosition()
         {
-            //Sets a starting position for character on the map
             Random r = new Random();
             Position[0] = r.Next(0, 125);
             Position[1] = r.Next(0, 30);
@@ -23,7 +22,6 @@ namespace Tjuv_och_polis
         public void SetMovement()
         {
             Random r = new Random();
-            //Decides which way the character moves on the map, also makes sure no one stands still by rolling 0, 0
             do
             {
                 MovementDirection[0] = r.Next(-1, 2);
@@ -34,7 +32,6 @@ namespace Tjuv_och_polis
 
         public void Move()
         {
-            //Adds the movementdirection to position for a new set of coordinates. Moves character to otherside of map when their coordinates go out of bounds.
             Position[0] = Position[0] + (MovementDirection[0]);
             if (Position[0] == 125)
             {
@@ -63,6 +60,7 @@ namespace Tjuv_och_polis
         {
             SetPosition();
             SetMovement();
+            ConfiscatedItems = Inventory.CreateInventoryForPoliceOrTheif();
         }
 
         public override string ToString()
@@ -82,6 +80,7 @@ namespace Tjuv_och_polis
             Serialnumber = serialnumber;
             SetPosition();
             SetMovement();
+            Loot = Inventory.CreateInventoryForPoliceOrTheif();
         }
 
         public override string ToString()

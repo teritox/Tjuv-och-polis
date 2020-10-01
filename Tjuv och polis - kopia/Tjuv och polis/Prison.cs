@@ -8,9 +8,8 @@ namespace Tjuv_och_polis
     {
         public static List<Person> PrisonList = new List<Person>();
 
-        public static void PrisonTimeCheck()
+        public static void Cell()
         {
-            //Checks to see if the theif is ready to go back to the game after being in prison for 30 sec. 
             if (PrisonList.Count > 0)
             {
                 for (int i = PrisonList.Count - 1; i >= 0; i--)
@@ -25,6 +24,7 @@ namespace Tjuv_och_polis
                         PrisonList.RemoveAt(i);
                     }
                 }
+
             }
         }
 
@@ -35,11 +35,11 @@ namespace Tjuv_och_polis
                 ((Theif)theif).PrisonTime++;
             }
 
-            PrisonTimeCheck();
+            Cell();
 
         }
 
-        public static void Prisoners()
+        public static void ShowPrisoners()
         {
             Console.WriteLine("\n\n- Fängelset \n");
 
